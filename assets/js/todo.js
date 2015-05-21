@@ -18,4 +18,13 @@ angular
             $scope.todos.splice($scope.todos.indexOf(todo), 1);
         };
 
+        $scope.addTodo = function () {
+            $scope.todos.push({
+                title: $scope.newTodo,
+                completed: false
+            });
+
+            $scope.newTodo = null;
+        };
+
     });
