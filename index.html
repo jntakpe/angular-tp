@@ -14,7 +14,7 @@
             <input type="text" id="new-todo" placeholder="Ajouter une tâche" autocomplete="off" autofocus ng-model="newTodo"/> <!-- input avec le contenu de la tâche -->
         </form>
         <section id="main">
-            <input type="checkbox" id="toggle-all"> <!-- Sélectionne toutes les tâches comme finies -->
+            <input type="checkbox" id="toggle-all" ng-model="allChecked" ng-click="markAll(allChecked)"> <!-- Sélectionne toutes les tâches comme finies -->
             <label for="toggle-all">Tâches finies</label>
             <ul id="todo-list">
                 <li ng-repeat="todo in todos" ng-class="{completed: todo.completed}"> <!-- Liste des tâches --> <!-- Si tâche finie appliquer sur li class 'completed' -->

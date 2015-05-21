@@ -27,4 +27,10 @@ angular
             $scope.newTodo = null;
         };
 
+        $scope.markAll = function (allChecked) {
+            $scope.todos.forEach(function (todo) {
+                todo.completed = allChecked;
+            });
+        };
+
     });
