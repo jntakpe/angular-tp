@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="todoapp">
 <head lang="en">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/css/todo.css"/>
     <title>TODO list</title>
 </head>
 <body>
-<section id="todoapp">
+<section id="todoapp" ng-controller="TodoCtrl">
     <header id="header">
         <h1>Todo APP</h1>
 
@@ -27,7 +27,7 @@
             </ul>
         </section>
         <footer id="footer">
-            <span id="todo-count"><strong><!-- ici nombre de tâches en cours -->tâches restantes</strong></span>
+            <span id="todo-count"><strong>{{ remaining }} tâches restantes</strong></span>
         </footer>
     </header>
 </section>
