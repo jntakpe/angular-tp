@@ -21,7 +21,7 @@
                     <div class="view">
                         <label for="task">{{ todo.title }}</label>
                         <input id="task" type="checkbox" class="toggle" ng-model="todo.completed"/> <!-- Switch pour passer la tâche au statut finie -->
-                        <button class="destroy"></button> <!-- Bouton permettant de supprimer une tâche -->
+                        <button class="destroy" ng-click="removeTodo(todo)"></button> <!-- Bouton permettant de supprimer une tâche -->
                     </div>
                 </li>
             </ul>

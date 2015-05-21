@@ -2,6 +2,7 @@ angular
     .module('todoapp', [])
     .controller('TodoCtrl', function TodoCtrl($scope) {
         $scope.remaining = 5;
+
         $scope.todos = [
             {
                 title: 'My first task',
@@ -12,4 +13,9 @@ angular
                 completed: false
             }
         ];
+
+        $scope.removeTodo = function (todo) {
+            $scope.todos.splice($scope.todos.indexOf(todo), 1);
+        };
+
     });
