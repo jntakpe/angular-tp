@@ -2,28 +2,37 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
-    <title>Controller</title>
+    <link rel="stylesheet" href="assets/css/todo.css"/>
+    <title>TODO list</title>
 </head>
-<body ng-app="myApp">
+<body>
+<section id="todoapp">
+    <header id="header">
+        <h1>Todo APP</h1>
 
-<div class="container" ng-controller="SomeCtrl">
-    <h1>Controller</h1>
-    <input type="text" class="form-control" ng-model="name" style="margin-bottom: 40px"/>
-
-    <div class="alert alert-info"><strong>Hello {{ name }}</strong></div>
-    <button class="btn btn-default" ng-click="sayHello()">Say hello !!! </button>
-</div>
+        <form id="todo-form"> <!-- cliquer sur entrée pour ajouter une tâche -->
+            <input type="text" id="new-todo" placeholder="Ajouter une tâche" autocomplete="off" autofocus/> <!-- input avec le contenu de la tâche -->
+        </form>
+        <section id="main">
+            <input type="checkbox" id="toggle-all"> <!-- Sélectionne toutes les tâches comme finies -->
+            <label for="toggle-all">Tâches finies</label>
+            <ul id="todo-list">
+                <li> <!-- Liste des tâches --> <!-- Si tâche finie appliquer sur li class 'completed' -->
+                    <div class="view">
+                        <label for="task">Tâche</label>
+                        <input id="task" type="checkbox" class="toggle"/> <!-- Switch pour passer la tâche au statut finie -->
+                        <button class="destroy"></button> <!-- Bouton permettant de supprimer une tâche -->
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <footer id="footer">
+            <span id="todo-count"><strong><!-- ici nombre de tâches en cours -->tâches restantes</strong></span>
+        </footer>
+    </header>
+</section>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/angular/angular.min.js"></script>
-<script>
-    var myApp = angular.module('myApp', []);
-    myApp.controller('SomeCtrl', function ($scope) {
-        $scope.name = "Jocelyn";
-        $scope.sayHello = function () {
-            alert('hello ' + $scope.name);
-        };
-    });
-</script>
+<script src="assets/js/todo.js"></script>
 </body>
 </html>
