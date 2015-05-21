@@ -1,13 +1,12 @@
 (function () {
     angular
         .module('scopeapp', [])
-        .controller('FirstCtrl', FirstCtrl)
-        .controller('SecondCtrl', SecondCtrl);
+        .controller('ParentCtrl', ParentCtrl);
 
 
-    function FirstCtrl() {
+    function ParentCtrl($scope) {
+        $scope.name = null;
+        $scope.user = {};
     }
 
-    function SecondCtrl() {
-    }
 })();
