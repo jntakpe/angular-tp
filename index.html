@@ -17,10 +17,10 @@
             <input type="checkbox" id="toggle-all"> <!-- Sélectionne toutes les tâches comme finies -->
             <label for="toggle-all">Tâches finies</label>
             <ul id="todo-list">
-                <li ng-repeat="todo in todos"> <!-- Liste des tâches --> <!-- Si tâche finie appliquer sur li class 'completed' -->
+                <li ng-repeat="todo in todos" ng-class="{completed: todo.completed}"> <!-- Liste des tâches --> <!-- Si tâche finie appliquer sur li class 'completed' -->
                     <div class="view">
                         <label for="task">{{ todo.title }}</label>
-                        <input id="task" type="checkbox" class="toggle"/> <!-- Switch pour passer la tâche au statut finie -->
+                        <input id="task" type="checkbox" class="toggle" ng-model="todo.completed"/> <!-- Switch pour passer la tâche au statut finie -->
                         <button class="destroy"></button> <!-- Bouton permettant de supprimer une tâche -->
                     </div>
                 </li>
