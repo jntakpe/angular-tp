@@ -10,24 +10,24 @@
     <header id="header">
         <h1>Todo APP</h1>
 
-        <form id="todo-form" ng-submit="addTodo()"> <!-- cliquer sur entrée pour ajouter une tâche -->
-            <input type="text" id="new-todo" placeholder="Ajouter une tâche" autocomplete="off" autofocus ng-model="newTodo"/> <!-- input avec le contenu de la tâche -->
+        <form id="todo-form" ng-submit="addTodo()">
+            <input type="text" id="new-todo" placeholder="Ajouter une tâche" autocomplete="off" autofocus ng-model="newTodo"/>
         </form>
         <section id="main">
-            <input type="checkbox" id="toggle-all" ng-model="allChecked" ng-click="markAll(allChecked)"> <!-- Sélectionne toutes les tâches comme finies -->
+            <input type="checkbox" id="toggle-all" ng-model="allChecked" ng-click="markAll(allChecked)">
             <label for="toggle-all">Tâches finies</label>
             <ul id="todo-list">
-                <li ng-repeat="todo in todos" ng-class="{completed: todo.completed}"> <!-- Liste des tâches --> <!-- Si tâche finie appliquer sur li class 'completed' -->
+                <li ng-repeat="todo in todos" ng-class="{completed: todo.completed}">
                     <div class="view">
                         <label for="task">{{ todo.title }}</label>
-                        <input id="task" type="checkbox" class="toggle" ng-model="todo.completed"/> <!-- Switch pour passer la tâche au statut finie -->
-                        <button class="destroy" ng-click="removeTodo(todo)"></button> <!-- Bouton permettant de supprimer une tâche -->
+                        <input id="task" type="checkbox" class="toggle" ng-model="todo.completed"/>
+                        <button class="destroy" ng-click="removeTodo(todo)"></button>
                     </div>
                 </li>
             </ul>
         </section>
         <footer id="footer">
-            <span id="todo-count"><strong>{{ remaining }} tâches restantes</strong></span>
+            <span id="todo-count"><strong>{{ remaining() }} tâches restantes</strong></span>
         </footer>
     </header>
 </section>

@@ -1,10 +1,12 @@
 angular
     .module('todoapp', [])
-    .controller('TodoCtrl', function TodoCtrl($scope) {
-
-        $scope.remaining = 5;
+    .controller('TodoCtrl', function TodoCtrl($scope, filterFilter) {
 
         $scope.todos = [];
+
+        $scope.remaining = function () {
+            return filterFilter($scope.todos, {completed: false}).length;
+        };
 
         $scope.removeTodo = function (todo) {
             $scope.todos.splice($scope.todos.indexOf(todo), 1);
@@ -24,6 +26,4 @@ angular
                 todo.completed = allChecked;
             });
         };
-
-        // Tâches restantes plus tard
     });
