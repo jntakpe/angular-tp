@@ -11,7 +11,8 @@
         <h1>Todo APP</h1>
 
         <form id="todo-form" ng-submit="addTodo()">
-            <input type="text" id="new-todo" placeholder="Ajouter une tâche" autocomplete="off" autofocus ng-model="newTodo"/>
+            <input type="text" id="new-todo" placeholder="Ajouter une tâche" autocomplete="off" autofocus
+                   ng-model="newTodo"/>
         </form>
         <section id="main">
             <input type="checkbox" id="toggle-all" ng-model="allChecked" ng-click="markAll(allChecked)">
@@ -27,7 +28,10 @@
             </ul>
         </section>
         <footer id="footer">
-            <span id="todo-count"><strong>{{ remaining() }} tâches restantes</strong></span>
+            <span id="todo-count"><strong>{{ remaining() }}
+                <ng-pluralize count="remaining()"
+                              when="{one: ' tâche restante', other: ' tâches restantes'}"></ng-pluralize>
+            </strong></span>
         </footer>
     </header>
 </section>
