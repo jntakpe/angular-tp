@@ -3,12 +3,16 @@ angular
     .controller('TodoCtrl', function TodoCtrl($scope, filterFilter) {
 
         $scope.todos = [];
+        $scope.status = '';
 
         $scope.removeTodo = function (todo) {
             $scope.todos.splice($scope.todos.indexOf(todo), 1);
         };
 
         $scope.addTodo = function () {
+            if (!$scope.newTodo) {
+                return;
+            }
             $scope.todos.push({
                 title: $scope.newTodo,
                 completed: false
@@ -25,5 +29,10 @@ angular
 
         $scope.remaining = function () {
             return filterFilter($scope.todos, {completed: false}).length;
+        };
+
+        $scope.changeStatus = function (status) {
+            $scope.statusFilter = status ? (status === 'active' ? {completed: false} : {completed: true}) : {};
+            $scope.status = status;
         };
     });

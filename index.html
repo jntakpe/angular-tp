@@ -18,7 +18,7 @@
             <input type="checkbox" id="toggle-all" ng-model="allChecked" ng-click="markAll(allChecked)">
             <label for="toggle-all">Tâches finies</label>
             <ul id="todo-list">
-                <li ng-repeat="todo in todos" ng-class="{completed: todo.completed}">
+                <li ng-repeat="todo in todos | filter:statusFilter" ng-class="{completed: todo.completed}">
                     <div class="view">
                         <label for="task">{{ todo.title | uppercase }}</label> <!-- Afficher en majuscules -->
                         <input id="task" type="checkbox" class="toggle" ng-model="todo.completed"/>
@@ -34,16 +34,15 @@
                                   when="{one: ' tâche restante', other: ' tâches restantes'}"></ng-pluralize>
                 </strong>
             </span>
-            <!-- Compter les tâches restantes ici -->
             <ul id="filters">
-                <li><!-- Si appliquer la classe selected sur les ancres pour marquer l'ancre selectionné -->
-                    <a>Toutes</a> <!-- Pas de filtrage -->
+                <li>
+                    <a ng-class="{selected: status === ''}" ng-click="changeStatus('')">Toutes</a>
                 </li>
                 <li>
-                    <a>Active</a> <!--Filtrage des tâches actives-->
+                    <a ng-class="{selected: status === 'active'}" ng-click="changeStatus('active')">Active</a>
                 </li>
                 <li>
-                    <a>Complète</a> <!--Filtrage des tâches complètes-->
+                    <a ng-class="{selected: status === 'completed'}" ng-click="changeStatus('completed')">Complète</a>
                 </li>
             </ul>
         </footer>
