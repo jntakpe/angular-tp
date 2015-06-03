@@ -14,12 +14,15 @@ angular
         };
 
         $scope.addTodo = function () {
+            if (!$scope.newTodo) {
+                return;
+            }
             $scope.todos.push({
                 title: $scope.newTodo,
                 completed: false
             });
 
-            $scope.newTodo = null;
+            $scope.newTodo = '';
         };
 
         $scope.markAll = function (allChecked) {
