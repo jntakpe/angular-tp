@@ -1,8 +1,6 @@
 angular
     .module('todoapp', [])
-    .controller('TodoCtrl', function TodoCtrl($scope) {
-
-        $scope.remaining = 5;
+    .controller('TodoCtrl', function TodoCtrl($scope, filterFilter) {
 
         $scope.todos = [];
 
@@ -25,5 +23,7 @@ angular
             });
         };
 
-        // Tâches restantes plus tard
+        $scope.remaining = function () {
+            return filterFilter($scope.todos, {completed: false}).length;
+        };
     });

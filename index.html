@@ -28,7 +28,12 @@
             </ul>
         </section>
         <footer id="footer">
-            <span id="todo-count"><strong>{{ remaining }} tâches restantes</strong></span>
+            <span id="todo-count">
+                <strong>{{ remaining() }}
+                    <ng-pluralize count="remaining()"
+                                  when="{one: ' tâche restante', other: ' tâches restantes'}"></ng-pluralize>
+                </strong>
+            </span>
             <!-- Compter les tâches restantes ici -->
             <ul id="filters">
                 <li><!-- Si appliquer la classe selected sur les ancres pour marquer l'ancre selectionné -->
