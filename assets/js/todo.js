@@ -3,6 +3,7 @@ angular
     .controller('TodoCtrl', function TodoCtrl($scope, filterFilter) {
 
         $scope.todos = [];
+        $scope.status = '';
 
         $scope.remaining = function () {
             return filterFilter($scope.todos, {completed: false}).length;
@@ -26,4 +27,10 @@ angular
                 todo.completed = allChecked;
             });
         };
+
+        $scope.changeStatus = function (status) {
+            $scope.statusFilter = status ? (status === 'active' ? {completed: false} : {completed: true}) : {};
+            $scope.status = status;
+        };
+
     });
