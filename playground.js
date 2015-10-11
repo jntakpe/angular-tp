@@ -1,16 +1,35 @@
-var vehicule = {
-    roues: 4,
-    permis: {
-        type: 'B'
+function User(name) {
+    this.name = name;
+    this.sayHello = function () {
+        console.log('Bonjour ' + name);
     }
+}
+
+User.prototype.sayMyName = function () {
+    console.log('Bonjour ' + this.name);
 };
-var moto = Object.create(vehicule);
-var camion = Object.create(vehicule);
-console.log("1) Moto roues : " + moto.roues);
-moto.roues = 2;
-console.log("2) Vehicule roues : " + vehicule.roues);
-console.log("3) Moto roues : " + moto.roues);
-moto.permis.type = 'A';
-console.log("4) Vehicule permis : " + vehicule.permis.type);
-console.log("5) Moto permis : " + moto.permis.type);
-console.log("6) Camion permis : " + camion.permis.type);
+
+var jocelyn = new User('Jocelyn');
+var gauthier = new User('Gauthier');
+
+console.log(gauthier.sayHello === jocelyn.sayHello);
+console.log(gauthier.sayMyName === jocelyn.sayMyName);
+
+User.prototype.isAdmin = function () {
+    console.log(!!this.admin);
+};
+
+
+function SuperUser(name) {
+    User.call(this, name);
+    this.admin = true;
+}
+
+SuperUser.prototype = Object.create(User.prototype);
+SuperUser.prototype.constructor = SuperUser;
+
+var su = new SuperUser('SomeAdmin');
+su.sayMyName();
+su.isAdmin();
+jocelyn.isAdmin();
+
