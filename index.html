@@ -6,6 +6,18 @@
 </head>
 <body>
 
-<script src="quiz.js"></script>
+<script>
+    var obj = {
+        someData: "a string"
+    };
+
+    function myFun() {
+        console.log(this);
+    }
+
+    obj.myFunction = myFun;
+
+    obj.myFunction();
+</script>
 </body>
 </html>
