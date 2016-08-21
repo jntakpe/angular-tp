@@ -8,16 +8,12 @@
 
 <script>
     var obj = {
-        someData: "a string"
+        myMethod: function () {
+            console.log(this);
+        }
     };
-
-    function myFun() {
-        console.log(this);
-    }
-
-    obj.myFunction = myFun;
-
-    obj.myFunction();
+    var myFun = obj.myMethod;
+    myFun();
 </script>
 </body>
 </html>
