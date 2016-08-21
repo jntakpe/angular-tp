@@ -1,10 +1,8 @@
 var a = 1;
 
-function b() {
+function b(a) {
+    alert(a);
     a = 10;
-    return;
-    function a() {
-    }
 }
 
 b();
