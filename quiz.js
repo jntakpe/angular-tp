@@ -1,7 +1,9 @@
-var myObject = {};
-console.log(myObject.a);
+var hi = function (name) {
+    return 'Hi ' + name;
+};
 
-var foo;
-console.log(foo);
+var greeting = function (name) {
+    return h1(name);
+};
 
-console.log(bar);
+var greeting = hi;
