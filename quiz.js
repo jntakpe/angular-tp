@@ -1,10 +1,11 @@
-var foo = 1;
+var a = 1;
 
-function bar() {
-    if (!foo) {
-        var foo = 10;
+function b() {
+    a = 10;
+    return;
+    function a() {
     }
-    alert(foo);
 }
 
-bar();
+b();
+alert(a);
