@@ -1,7 +1,10 @@
-var fact = function factoriel(n) {
-    console.log(n);
-    return n == 0 ? 1 : (n * this.factoriel(n - 1));
+var myObject = {
+    length: 4,
+    0: 'Apple',
+    1: 'Oranges',
+    2: 'Pork',
+    3: 'Chicken'
 };
 
-var r = fact(5);
-console.log(r);
+var b = Array.prototype.slice.call(myObject, 0);
+console.log(b);
